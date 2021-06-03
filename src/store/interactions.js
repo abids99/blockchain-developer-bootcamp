@@ -3,43 +3,115 @@ import {
 	web3Loaded,
 	web3AccountLoaded,
 	tokenLoaded,
-	exchangeLoaded
+	exchangeLoaded,
+  cancelledOrdersLoaded,
+  filledOrdersLoaded,
+  allOrdersLoaded
 } from './actions'
 import Token from '../abis/Token.json'
 import Exchange from '../abis/Exchange.json'
 
-
-export const loadWeb3 = (dispatch) => {
-	const web3 = new Web3(window.ethereum || 'http://127.0.0.1:8545')
-	dispatch(web3Loaded(web3))
-	return web3
+export const loadWeb3 = async (dispatch) => {
+  let web3
+  if(typeof window.ethereum !== 'undefined') {
+    web3 = new Web3(window.ethereum)
+  }
+  else if (window.web3) {
+  	web3 = new Web3(window.web3.currentProvider)
+  }
+  else {
+    window.alert('Please install MetaMask')
+    window.location.assign("https://metamask.io/")
+  }
+  dispatch(web3Loaded(web3))
+    return web3
 }
 
 export const loadAccount = async (web3, dispatch) => {
-	const accounts = await web3.eth.getAccounts()
-	const account = await accounts[0]
-	dispatch(web3AccountLoaded(account))
-	return account
+  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+  let account = await accounts[0]
+  if(typeof account !== 'undefined'){
+    dispatch(web3AccountLoaded(account))
+    return account
+  } else {
+    window.alert('Please login with MetaMask')
+    return null
+  }
 }
 
 export const loadToken = async (web3, networkId, dispatch) => {
-	try {
-		const token = new web3.eth.Contract(Token.abi, Token.networks[networkId].address)
-		dispatch(tokenLoaded(token))
-		return token
-	} catch (error) {
-		window.alert('Contract not deployed to the current network. Please select another network with Metamask')
-		return null
-	}
+  try {
+    const token = new web3.eth.Contract(Token.abi, Token.networks[networkId].address)
+    dispatch(tokenLoaded(token))
+    return token
+  } catch (error) {
+    console.log('Contract not deployed to the current network. Please select another network with Metamask.')
+    return null
+  }
 }
 
 export const loadExchange = async (web3, networkId, dispatch) => {
-	try {
-		const exchange = new web3.eth.Contract(Exchange.abi, Exchange.networks[networkId].address)
-		dispatch(exchangeLoaded(exchange))
-		return exchange
-	} catch (error) {
-		window.alert('Contract not deployed to the current network. Please select another network with Metamask')
-		return null
-	}
+  try {
+    const exchange = new web3.eth.Contract(Exchange.abi, Exchange.networks[networkId].address)
+    dispatch(exchangeLoaded(exchange))
+    return exchange
+  } catch (error) {
+    console.log('Contract not deployed to the current network. Please select another network with Metamask.')
+    return null
+  }
 }
+
+export const loadAllOrders = async (exchange, dispatch) => {
+  // Fetch cancelled orders with the "Cancel" event stream
+  const cancelSteam = await exchange.getPastEvents('Cancel', { fromBlock: 0, toBlock: 'latest' })
+  // Format cancelled orders
+  const cancelledOrders = cancelSteam.map((event) => event.returnValues)
+  // Add cancelled orders to the redux store
+  dispatch(cancelledOrdersLoaded(cancelledOrders))
+
+  // Fetch filled orders with the "Trade" event stream
+  const tradeSteam = await exchange.getPastEvents('Trade', { fromBlock: 0, toBlock: 'latest' })
+  // Format filled orders
+  const filledOrders = tradeSteam.map((event) => event.returnValues)
+  // Add cancelled orders to the redux store
+  dispatch(filledOrdersLoaded(filledOrders))
+
+  // Load order stream
+  const orderSteam = await exchange.getPastEvents('Order', { fromBlock: 0, toBlock: 'latest' })
+  // Format order stream
+  const allOrders = orderSteam.map((event) => event.returnValues)
+  // Add open orders to the redux store
+  dispatch(allOrdersLoaded(allOrders))
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
