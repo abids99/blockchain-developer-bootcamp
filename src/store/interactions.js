@@ -1,12 +1,14 @@
 import Web3 from 'web3'
 import {
-	web3Loaded,
-	web3AccountLoaded,
-	tokenLoaded,
-	exchangeLoaded,
+  web3Loaded,
+  web3AccountLoaded,
+  tokenLoaded,
+  exchangeLoaded,
   cancelledOrdersLoaded,
   filledOrdersLoaded,
-  allOrdersLoaded
+  allOrdersLoaded,
+  orderCancelling,
+  orderCancelled
 } from './actions'
 import Token from '../abis/Token.json'
 import Exchange from '../abis/Exchange.json'
@@ -15,21 +17,25 @@ export const loadWeb3 = async (dispatch) => {
   let web3
   if(typeof window.ethereum !== 'undefined') {
     web3 = new Web3(window.ethereum)
+    await window.ethereum.request({ method: 'eth_requestAccounts' })
+    dispatch(web3Loaded(web3))
+    return web3
   }
   else if (window.web3) {
-  	web3 = new Web3(window.web3.currentProvider)
+    web3 = new Web3(window.web3.currentProvider)
+    dispatch(web3Loaded(web3))
+    return web3
   }
   else {
     window.alert('Please install MetaMask')
     window.location.assign("https://metamask.io/")
   }
-  dispatch(web3Loaded(web3))
-    return web3
+  
 }
 
 export const loadAccount = async (web3, dispatch) => {
-  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-  let account = await accounts[0]
+  const accounts = await web3.eth.getAccounts()
+  const account = await accounts[0]
   if(typeof account !== 'undefined'){
     dispatch(web3AccountLoaded(account))
     return account
@@ -63,27 +69,47 @@ export const loadExchange = async (web3, networkId, dispatch) => {
 
 export const loadAllOrders = async (exchange, dispatch) => {
   // Fetch cancelled orders with the "Cancel" event stream
-  const cancelSteam = await exchange.getPastEvents('Cancel', { fromBlock: 0, toBlock: 'latest' })
+  const cancelStream = await exchange.getPastEvents('Cancel', { fromBlock: 0, toBlock: 'latest' })
   // Format cancelled orders
-  const cancelledOrders = cancelSteam.map((event) => event.returnValues)
+  const cancelledOrders = cancelStream.map((event) => event.returnValues)
   // Add cancelled orders to the redux store
   dispatch(cancelledOrdersLoaded(cancelledOrders))
 
   // Fetch filled orders with the "Trade" event stream
-  const tradeSteam = await exchange.getPastEvents('Trade', { fromBlock: 0, toBlock: 'latest' })
+  const tradeStream = await exchange.getPastEvents('Trade', { fromBlock: 0, toBlock: 'latest' })
   // Format filled orders
-  const filledOrders = tradeSteam.map((event) => event.returnValues)
+  const filledOrders = tradeStream.map((event) => event.returnValues)
   // Add cancelled orders to the redux store
   dispatch(filledOrdersLoaded(filledOrders))
 
   // Load order stream
-  const orderSteam = await exchange.getPastEvents('Order', { fromBlock: 0, toBlock: 'latest' })
+  const orderStream = await exchange.getPastEvents('Order', { fromBlock: 0,  toBlock: 'latest' })
   // Format order stream
-  const allOrders = orderSteam.map((event) => event.returnValues)
+  const allOrders = orderStream.map((event) => event.returnValues)
   // Add open orders to the redux store
   dispatch(allOrdersLoaded(allOrders))
-
 }
+
+export const cancelOrder = (dispatch, exchange, order, account) => {
+  exchange.methods.cancelOrder(order.id).send({ from: account })
+  .on('transactionHash', (hash) => {
+     dispatch(orderCancelling())
+  })
+  .on('error', (error) => {
+    console.log(error)
+    window.alert('There was an error!')
+  })
+}
+
+export const subscribeToEvents = async (exchange, dispatch) => {
+  exchange.events.Cancel({}, (error, event) => {
+    dispatch(orderCancelled(event.returnValues))
+  })
+}
+
+
+
+
 
 
 

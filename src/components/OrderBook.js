@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Spinner from './Spinner'
 import {
 	orderBookSelector,
@@ -8,11 +9,22 @@ import {
 
 const renderOrder = (order) => {
 	return(
-		<tr key={order.id}>
-			<th>{order.tokenAmount}</th>
-			<th className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</th>
-			<th>{order.etherAmount}</th>		              							              		
-		</tr>
+		<OverlayTrigger
+			key={order.id}
+			placement='auto'
+			overlay={
+				<Tooltip id={order.id}>
+					{`Click here to ${order.orderFillAction}`}
+				</Tooltip>
+			}
+		>
+
+			<tr key={order.id}>
+				<th>{order.tokenAmount}</th>
+				<th className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</th>
+				<th>{order.etherAmount}</th>		              							              		
+			</tr>
+		</OverlayTrigger>
 	)
 }
 
