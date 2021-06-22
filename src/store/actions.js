@@ -63,3 +63,71 @@ export function orderCancelled(order) {
     order
   }
 }
+
+// Fill order
+export function orderFilling() {
+  return {
+    type: 'ORDER_FILLING'
+  }
+}
+
+export function orderFilled(order) {
+  return {
+    type: 'ORDER_FILLED',
+    order
+  }
+}
+
+// balances
+export function etherBalanceLoaded(balance) {
+  return {
+    typeP: 'ETHER_BALANCE_LOADED',
+    balance
+  }
+}
+
+export function tokenBalanceLoaded(balance) {
+  return {
+    typeP: 'TOKEN_BALANCE_LOADED',
+    balance
+  }
+}
+
+export function exchangeEtherBalanceLoaded(balance) {
+  return {
+    typeP: 'EXCHANGE_ETHER_BALANCE_LOADED',
+    balance
+  }
+}
+
+export function exchangeTokenBalanceLoaded(balance) {
+  return {
+    typeP: 'EXCHANGE_TOKEN_BALANCE_LOADED',
+    balance
+  }
+}
+
+export function balancesLoaded() {
+  return {
+    type: 'BALANCES_LOADED'
+  }
+}
+
+export function balancesLoading() {
+  return {
+    type: 'BALANCES_LOADING'
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,10 +4,15 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Spinner from './Spinner'
 import {
 	orderBookSelector,
-	orderBookLoadedSelector
+	orderBookLoadedSelector,
+	exchangeSelector,
+    accountSelector,
+    orderFillingSelector
 } from '../store/selectors'
+import { fillOrder } from '../store/interactions'
 
-const renderOrder = (order) => {
+const renderOrder = (order, props) => {
+	const { dispatch, exchange, account } = props
 	return(
 		<OverlayTrigger
 			key={order.id}
@@ -19,7 +24,11 @@ const renderOrder = (order) => {
 			}
 		>
 
-			<tr key={order.id}>
+			<tr
+			key={order.id}
+			className="order-book-order"
+			onClick={(e) => fillOrder(dispatch, exchange, order, account)}
+			>
 				<th>{order.tokenAmount}</th>
 				<th className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</th>
 				<th>{order.etherAmount}</th>		              							              		
@@ -38,13 +47,13 @@ const showOrderBook = (props) => {
   			<th>DAPP/ETH</th>
   			<th>ETH</th>		              							              		
   		</tr>
-			{orderBook.sellOrders.map((order) => renderOrder(order))}
+			{orderBook.sellOrders.map((order) => renderOrder(order, props))}
 			<tr>
   			<th>DAPP</th>
   			<th>DAPP/ETH</th>
   			<th>ETH</th>		              							              		
   		</tr>
-			{orderBook.buyOrders.map((order) => renderOrder(order))}
+			{orderBook.buyOrders.map((order) => renderOrder(order, props))}
 		</tbody>
 	)
 }
@@ -69,10 +78,15 @@ class OrderBook extends Component {
 }
 
 function mapStateToProps(state) {
+	const orderBookLoaded =orderBookLoadedSelector(state)
+	const orderFilling = orderFillingSelector(state)
+
 
 	return{
 		orderBook: orderBookSelector(state),
-		showOrderBook: orderBookLoadedSelector(state)
+		showOrderBook: orderBookLoaded && !orderFilling,
+		exchange: exchangeSelector(state),
+    	account: accountSelector(state)
 	}
 }
 
