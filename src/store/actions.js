@@ -81,28 +81,28 @@ export function orderFilled(order) {
 // balances
 export function etherBalanceLoaded(balance) {
   return {
-    typeP: 'ETHER_BALANCE_LOADED',
+    type: 'ETHER_BALANCE_LOADED',
     balance
   }
 }
 
 export function tokenBalanceLoaded(balance) {
   return {
-    typeP: 'TOKEN_BALANCE_LOADED',
+    type: 'TOKEN_BALANCE_LOADED',
     balance
   }
 }
 
 export function exchangeEtherBalanceLoaded(balance) {
   return {
-    typeP: 'EXCHANGE_ETHER_BALANCE_LOADED',
+    type: 'EXCHANGE_ETHER_BALANCE_LOADED',
     balance
   }
 }
 
 export function exchangeTokenBalanceLoaded(balance) {
   return {
-    typeP: 'EXCHANGE_TOKEN_BALANCE_LOADED',
+    type: 'EXCHANGE_TOKEN_BALANCE_LOADED',
     balance
   }
 }
@@ -118,6 +118,88 @@ export function balancesLoading() {
     type: 'BALANCES_LOADING'
   }
 }
+
+export function etherDepositAmountChanged(amount) {
+  return {
+    type: 'ETHER_DEPOSIT_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+export function etherWithdrawAmountChanged(amount) {
+  return {
+    type: 'ETHER_WITHDRAW_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+export function tokenDepositAmountChanged(amount) {
+  return {
+    type: 'TOKEN_DEPOSIT_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+export function tokenWithdrawAmountChanged(amount) {
+  return {
+    type: 'TOKEN_WITHDRAW_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+// Buy order
+export function buyOrderAmountChanged(amount) {
+  return {
+    type: 'BUY_ORDER_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+export function buyOrderPriceChanged(price) {
+  return {
+    type: 'BUY_ORDER_PRICE_CHANGED',
+    price
+  }
+}
+
+export function buyOrderMaking(price) {
+  return {
+    type: 'BUY_ORDER_MAKING'
+  }
+}
+
+// Generic order
+export function orderMade(order) {
+  return {
+    type: 'ORDER_MADE',
+    order
+  }
+}
+
+// Sell order
+export function sellOrderAmountChanged(amount) {
+  return {
+    type: 'SELL_ORDER_AMOUNT_CHANGED',
+    amount
+  }
+}
+
+export function sellOrderPriceChanged(price) {
+  return {
+    type: 'SELL_ORDER_PRICE_CHANGED',
+    price
+  }
+}
+
+export function sellOrderMaking(price) {
+  return {
+    type: 'SELL_ORDER_MAKING'
+  }
+}
+
+
+
+
 
 
 

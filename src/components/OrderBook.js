@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, Tabs, Tab } from 'react-bootstrap'
 import Spinner from './Spinner'
 import {
 	orderBookSelector,
@@ -41,20 +41,28 @@ const showOrderBook = (props) => {
 	const { orderBook } = props
 
 	return(
-		<tbody>
-			<tr>
-  			<th>DAPP</th>
-  			<th>DAPP/ETH</th>
-  			<th>ETH</th>		              							              		
-  		</tr>
-			{orderBook.sellOrders.map((order) => renderOrder(order, props))}
-			<tr>
-  			<th>DAPP</th>
-  			<th>DAPP/ETH</th>
-  			<th>ETH</th>		              							              		
-  		</tr>
-			{orderBook.buyOrders.map((order) => renderOrder(order, props))}
-		</tbody>
+		<Tabs defaultActiveKey="buyOrders" className="bg-dark text-white">	
+			<Tab eventKey="buyOrders" title="BUY ORDER" className="bg-dark">
+				<tbody>
+					<tr>
+			  			<th>DAPP</th>
+			  			<th>DAPP/ETH</th>
+			  			<th>ETH</th>		              							              		
+			  		</tr>
+					{orderBook.buyOrders.map((order) => renderOrder(order, props))}
+				</tbody>
+			</Tab>
+			<Tab eventKey="sellOrders" title="SELL ORDER" className="bg-dark">	
+				<tbody>
+					<tr>
+			  			<th>DAPP</th>
+			  			<th>DAPP/ETH</th>
+			  			<th>ETH</th>		              							              		
+			  		</tr>
+					{orderBook.sellOrders.map((order) => renderOrder(order, props))}
+				</tbody>	
+			</Tab>	
+		</Tabs>
 	)
 }
 

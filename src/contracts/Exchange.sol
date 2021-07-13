@@ -5,21 +5,9 @@ import "./Token.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 
-// TODO:
-// [x] Set the fee account
-// [x] Deposit Ether
-// [x] Withdraw Ether
-// [x] Deposit tokens
-// [x] Withdraw tokens
-// [x] Check balances
-// [x] Make order
-// [x] Cancel order
-// [x] Fill order
-// [x] Charge fees
-
-
 contract Exchange {
 	using SafeMath for uint256;
+
 	// Variables
 	address public feeAccount;
 	uint256 public feePercent;
@@ -110,7 +98,6 @@ contract Exchange {
 		require(tokens[_token][msg.sender] >= _amount);
 		tokens[_token][msg.sender] = tokens[_token][msg.sender].sub(_amount);
 		require(Token(_token).transfer(msg.sender, _amount));
-		//msg.sender.transfer(_amount);
 		emit Withdraw(_token, msg.sender, _amount, tokens[_token][msg.sender]);
 	}
 
@@ -143,7 +130,7 @@ contract Exchange {
 	}
 	
 	function _trade(uint256 _orderId, address _user, address _tokenGet, uint256 _amountGet, address _tokenGive, uint256 _amountGive) internal {
-		uint256 _feeAmount = _amountGive.mul(feePercent).div(100);
+		uint256 _feeAmount = _amountGet.mul(feePercent).div(100);
 
 		tokens[_tokenGet][msg.sender] = tokens[_tokenGet][msg.sender].sub(_amountGet.add(_feeAmount));
 		tokens[_tokenGet][_user] = tokens[_tokenGet][_user].add(_amountGet);

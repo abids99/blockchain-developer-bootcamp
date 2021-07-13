@@ -13,7 +13,7 @@ export const chartOptions = {
     },
     x: {
         show: false,
-        format: 'dd MMM',
+        format: 'hh:mm dd MMM',
         formatter: undefined,
     },
     y: {
