@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { OverlayTrigger, Tooltip, Tabs, Tab } from 'react-bootstrap'
+import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
 import Spinner from './Spinner'
 import {
 	orderBookSelector,
@@ -29,41 +29,28 @@ const renderOrder = (order, props) => {
 			className="order-book-order"
 			onClick={(e) => fillOrder(dispatch, exchange, order, account)}
 			>
-				<th>{order.tokenAmount}</th>
-				<th className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</th>
-				<th>{order.etherAmount}</th>		              							              		
+				<td>{order.tokenAmount}</td>
+				<td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
+				<td>{order.etherAmount}</td>		              							              		
 			</tr>
 		</OverlayTrigger>
 	)
 }
 
 const showOrderBook = (props) => {
-	const { orderBook } = props
+  const { orderBook } = props
 
-	return(
-		<Tabs defaultActiveKey="buyOrders" className="bg-dark text-white">	
-			<Tab eventKey="buyOrders" title="BUY ORDER" className="bg-dark">
-				<tbody>
-					<tr>
-			  			<th>DAPP</th>
-			  			<th>DAPP/ETH</th>
-			  			<th>ETH</th>		              							              		
-			  		</tr>
-					{orderBook.buyOrders.map((order) => renderOrder(order, props))}
-				</tbody>
-			</Tab>
-			<Tab eventKey="sellOrders" title="SELL ORDER" className="bg-dark">	
-				<tbody>
-					<tr>
-			  			<th>DAPP</th>
-			  			<th>DAPP/ETH</th>
-			  			<th>ETH</th>		              							              		
-			  		</tr>
-					{orderBook.sellOrders.map((order) => renderOrder(order, props))}
-				</tbody>	
-			</Tab>	
-		</Tabs>
-	)
+  return(
+    <tbody>
+      {orderBook.sellOrders.map((order) => renderOrder(order, props))}
+      <tr>
+        <th>DAPP</th>
+        <th>DAPP/ETH</th>
+        <th>ETH</th>
+      </tr>
+      {orderBook.buyOrders.map((order) => renderOrder(order, props))}
+    </tbody>
+  )
 }
 
 class OrderBook extends Component {
@@ -75,8 +62,8 @@ class OrderBook extends Component {
 						Order Book
 					</div>
 					<div className="card-body order-book">
-						<table className="table table-dark table-sm small">
-							{ this.props.showOrderBook ? showOrderBook(this.props) : <Spinner type="table" /> }
+						<table className="table table-dark table-sm small">							
+							{ this.props.showOrderBook ? showOrderBook(this.props) : <Spinner type='table' /> }
 						</table>
 					</div>
 				</div>
