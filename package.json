@@ -5,10 +5,10 @@
   "author": "dev@dappuniversity.com",
   "private": true,
   "homepage": ".",
-  "engines": {
+  "engines.node": {
     "node": "15.10.0"
   },
-  "engines": {
+  "engines.npn": {
     "npn": "7.12.0"
   },
   "dependencies": {
