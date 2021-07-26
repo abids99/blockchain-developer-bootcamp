@@ -8,9 +8,7 @@
   "engines.node": {
     "node": "15.10.0"
   },
-  "engines.npn": {
-    "npn": "7.12.0"
-  },
+  
   "dependencies": {
     "@truffle/hdwallet-provider": "1.1.0",
     "apexcharts": "3.6.3",
