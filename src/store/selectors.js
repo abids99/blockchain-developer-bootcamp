@@ -1,17 +1,7 @@
 import { get, groupBy, reject, maxBy, minBy } from 'lodash'
 import { createSelector } from 'reselect'
 import moment from 'moment'
-import { ETHER_ADDRESS, GREEN, RED, ether, tokens } from '../helpers'
-
-// TODO: Move me to helpers file
-export const formatBalance = (balance) => {
-  const precision = 100 // 2 decimal places
-
-  balance = ether(balance)
-  balance = Math.round(balance * precision) / precision // Use 2 decimal places
-
-  return balance
-}
+import { ETHER_ADDRESS, GREEN, RED, tokens, ether, formatBalance } from '../helpers'
 
 const account = state => get(state, 'web3.account')
 export const accountSelector = createSelector(account, a => a)
@@ -381,3 +371,27 @@ export const buyOrderSelector = createSelector(buyOrder, order => order)
 
 const sellOrder = state => get(state, 'exchange.sellOrder', {})
 export const sellOrderSelector = createSelector(sellOrder, order => order)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
