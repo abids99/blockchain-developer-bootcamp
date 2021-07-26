@@ -64,7 +64,7 @@ export function orderCancelled(order) {
   }
 }
 
-// Fill order
+// Fill Order
 export function orderFilling() {
   return {
     type: 'ORDER_FILLING'
@@ -78,7 +78,7 @@ export function orderFilled(order) {
   }
 }
 
-// balances
+// Balances
 export function etherBalanceLoaded(balance) {
   return {
     type: 'ETHER_BALANCE_LOADED',
@@ -147,7 +147,7 @@ export function tokenWithdrawAmountChanged(amount) {
   }
 }
 
-// Buy order
+// Buy Order
 export function buyOrderAmountChanged(amount) {
   return {
     type: 'BUY_ORDER_AMOUNT_CHANGED',
@@ -168,7 +168,7 @@ export function buyOrderMaking(price) {
   }
 }
 
-// Generic order
+// Generic Order
 export function orderMade(order) {
   return {
     type: 'ORDER_MADE',
@@ -176,7 +176,7 @@ export function orderMade(order) {
   }
 }
 
-// Sell order
+// Sell Order
 export function sellOrderAmountChanged(amount) {
   return {
     type: 'SELL_ORDER_AMOUNT_CHANGED',
@@ -196,20 +196,3 @@ export function sellOrderMaking(price) {
     type: 'SELL_ORDER_MAKING'
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,6 +26,7 @@ function token(state = {}, action) {
 
 function exchange(state = {}, action) {
   let index, data
+
   switch (action.type) {
     case 'EXCHANGE_LOADED':
       return { ...state, loaded: true, contract: action.contract }
@@ -51,7 +52,7 @@ function exchange(state = {}, action) {
       }
     case 'ORDER_FILLED':
       // Prevent duplicate orders
-      index = state.filledOrders.data.findIndex(order => order.id === action.order.id)
+      index = state.filledOrders.data.findIndex(order => order.id === action.order.id);
 
       if(index === -1) {
         data = [...state.filledOrders.data, action.order]
@@ -59,21 +60,22 @@ function exchange(state = {}, action) {
         data = state.filledOrders.data
       }
 
-      return { 
+      return {
         ...state,
         orderFilling: false,
-        orderFilled: {
+        filledOrders: {
           ...state.filledOrders,
           data
         }
       }
+
     case 'ORDER_FILLING':
       return { ...state, orderFilling: true }
-    
+
     case 'EXCHANGE_ETHER_BALANCE_LOADED':
       return { ...state, etherBalance: action.balance }
     case 'EXCHANGE_TOKEN_BALANCE_LOADED':
-      return { ...state, tokenBalance: action.balance }  
+      return { ...state, tokenBalance: action.balance }
     case 'BALANCES_LOADING':
       return { ...state, balancesLoading: true }
     case 'BALANCES_LOADED':
@@ -90,10 +92,10 @@ function exchange(state = {}, action) {
     case 'BUY_ORDER_AMOUNT_CHANGED':
       return { ...state, buyOrder: { ...state.buyOrder, amount: action.amount } }
     case 'BUY_ORDER_PRICE_CHANGED':
-      return { ...state, buyOrder: { ...state.buyOrder, price: action.price } }      
+      return { ...state, buyOrder: { ...state.buyOrder, price: action.price } }
     case 'BUY_ORDER_MAKING':
       return { ...state, buyOrder: { ...state.buyOrder, amount: null, price: null, making: true } }
-    
+
     case 'ORDER_MADE':
       // Prevent duplicate orders
       index = state.allOrders.data.findIndex(order => order.id === action.order.id);
@@ -123,7 +125,7 @@ function exchange(state = {}, action) {
     case 'SELL_ORDER_AMOUNT_CHANGED':
       return { ...state, sellOrder: { ...state.sellOrder, amount: action.amount } }
     case 'SELL_ORDER_PRICE_CHANGED':
-      return { ...state, sellOrder: { ...state.sellOrder, price: action.price } }      
+      return { ...state, sellOrder: { ...state.sellOrder, price: action.price } }
     case 'SELL_ORDER_MAKING':
       return { ...state, sellOrder: { ...state.sellOrder, amount: null, price: null, making: true } }
 
