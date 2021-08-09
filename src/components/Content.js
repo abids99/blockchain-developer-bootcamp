@@ -31,7 +31,7 @@ class Content extends Component {
         <div className="vertical-split">
           <PriceChart />
           <MyTransactions />
-        </div>
+        </div> 
         <Trades />
       </div>
     )
