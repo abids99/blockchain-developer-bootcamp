@@ -24,7 +24,7 @@ class App extends Component {
     await loadAccount(web3, dispatch)
     const token = await loadToken(web3, networkId, dispatch)
     if(!token) {
-      window.alert('Token smart contract not detected on the current network. Please select another network with Metamask.')
+      //window.alert('Token smart contract not detected on the current network. Please select another network with Metamask.S')
       return
     }    
     const exchange = await loadExchange(web3, networkId, dispatch)
