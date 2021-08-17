@@ -28,7 +28,7 @@ class Errr extends Component {
           
           <div className="full  bg-light text-dark">
             <div className="center-cus-text">
-              If Metamask not installed please install metamask      
+              If Metamask is not installed please install Metamask      
             </div>
             <div className="center-button"> 
               <a href="https://metamask.io/"><input type="button" bg="dark" text="info" value='Click Here'></input></a>
