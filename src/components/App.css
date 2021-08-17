@@ -14,6 +14,22 @@
   z-index: 1
 }
 
+.content-cus  {
+  background-color: #1d1d1d;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  padding: 0px;
+  z-index: 1
+}
+
 .content > div {
   width: 20%;
   padding-right: 8px
@@ -85,6 +101,109 @@
   .vertical-split > div:first-child {
     height: auto
   }
+}
+
+.center-cus-text {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+.center-cus-l {
+  position: absolute;
+  top: 50%;
+  width: 77%;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+.center-cus {
+  position: absolute;
+  top: 50%;
+  width: 84%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.full > div {
+  height: 900px;
+}
+
+.img > div {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+.horizontal > div {
+  width: 100%
+}
+
+.horizontal-split {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  
+  justify-content: space-evenly;
+  flex-wrap: nowrap
+}
+
+.horizontal-split > div {
+  width: 50%
+}
+
+.horizontal-split > div {
+  height: 100%
+}
+
+.horizontal-split > div:first-child {
+  margin-bottom: 8px
+}
+
+.horizontal-split > div:first-child {
+  margin-left: 6px
+}
+
+.horizontal-split > div:first-child {
+  margin-right: 4px
+}
+
+.horizontal-split > div:last-child {
+  margin-right: 4px
+}
+
+.horizontal-split:last-child > div:first-child {
+  width: 50%
+}
+
+.horizontal-split:last-child > div:last-child {
+  width: 50%
+}
+
+@media (max-width:992px) {
+  .horizontal-split {
+    display: block
+  }
+  .horizontal-split > div,
+  .horizontal-split > div:first-child {
+    width: auto
+  }
+}
+
+.container{ 
+  margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;/* Define the width here; */
+    height: 50%;/* Define the height here; */
 }
 
 .card {
