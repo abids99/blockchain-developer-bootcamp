@@ -30,7 +30,7 @@ class Errr extends Component {
             <div className="center-cus-text">
               If Metamask not installed please install metamask      
             </div>
-            <div className="center-cus-l"> 
+            <div className="center-button"> 
               <a href="https://metamask.io/"><input type="button" bg="dark" text="info" value='Click Here'></input></a>
             </div>
           </div>
@@ -39,7 +39,7 @@ class Errr extends Component {
             <div className="center-cus-text">
               if Exchange is not loaded please change to Ropsten Test Network      
             </div>
-            <div className="center-cus">  
+            <div className="center-button-r">  
               <a href="https://docs.cargo.build/guides/changing-your-network-with-metamask"><input type="button" bg="dark" text="info" value='Click Here'></input></a>
             </div> 
           </div>      
