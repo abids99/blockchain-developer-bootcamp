@@ -9,10 +9,9 @@ contract Token {
     string public symbol = "SMAR";
     uint256 public decimals = 18;
     uint256 public totalSupply;
-    //Mappings
     mapping(address => uint256) public balanceOf;    
     mapping(address => mapping(address => uint256)) public allowance;
-    // Events
+    // Event
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
