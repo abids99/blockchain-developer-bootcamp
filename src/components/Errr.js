@@ -6,25 +6,9 @@ class Errr extends Component {
   render() {
     return (
       <div className="content-cus">  
-        <div className="horizontal-split">	
-          
-          <div className="full bg-light text-dark">
-        		<div>
-                  
-            </div>
-            
-          </div>
+        
 
-          <div className="full bg-light text-dark">
-            <div>
-        			   
-          	</div>
-          	
-        	</div>      
-       
-        </div>
-
-       <div className="horizontal-split"> 
+      <div className="horizontal-split"> 
           
           <div className="full  bg-light text-dark">
             <div className="center-cus-text">
