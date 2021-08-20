@@ -111,17 +111,11 @@
   font-size: 18px;
 }
 
-
-.center-button{
-  position: absolute;
-  top: 55%;
-  width: 50%;
-  text-align: center;
-  font-size: 18px;
+.text-height {
+  top: 10%;
 }
 
-
-.center-button-r {
+.center-button{
   position: absolute;
   top: 55%;
   width: 50%;
@@ -166,15 +160,15 @@
 }
 
 .horizontal-split > div:first-child {
-  margin-left: 6px
+  margin-left: 0px
 }
 
 .horizontal-split > div:first-child {
-  margin-right: 4px
+  margin-right: 0px
 }
 
 .horizontal-split > div:last-child {
-  margin-right: 4px
+  margin-right: 0px
 }
 
 .horizontal-split:last-child > div:first-child {

@@ -28,19 +28,23 @@ class Errr extends Component {
           
           <div className="full  bg-light text-dark">
             <div className="center-cus-text">
-              If Metamask is not installed please install metamask      
+              1. If Metamask is not installed please install metamask and Login     
             </div>
             <div className="center-button"> 
-              <a href="https://metamask.io/"><input type="button" bg="dark" text="info" value='Click Here'></input></a>
+              <a href="https://metamask.io/"><input type="button" bg="dark" text="info" value='How to Guide'></input></a>
             </div>
+          </div>
+
+          <div className="center-cus-text text-height text-dark">
+            if you are seeing this page there might be one of the errors listed below
           </div>
 
           <div className="full bg-light text-dark">
             <div className="center-cus-text">
-              if Exchange is not loaded please change to Ropsten Test Network      
+              2. if Exchange is not loaded please change to Ropsten Test Network      
             </div>
-            <div className="center-button-r">  
-              <a href="https://docs.cargo.build/guides/changing-your-network-with-metamask"><input type="button" bg="dark" text="info" value='Click Here'></input></a>
+            <div className="center-button">  
+              <a href="https://docs.cargo.build/guides/changing-your-network-with-metamask"><input type="button" bg="dark" text="info" value='How to Guide'></input></a>
             </div> 
           </div>      
        
