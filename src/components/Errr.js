@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
+//import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
 
 class Errr extends Component {
   render() {
