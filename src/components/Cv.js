@@ -10,7 +10,7 @@ class Cv extends Component {
         <div className="horizontal-split"> 
           <div className="full  bg-light text-dark">
             <div className="center-cus-text">
-              hi
+              CV is not yet Deployed
             </div>
           </div>      
         </div>   
