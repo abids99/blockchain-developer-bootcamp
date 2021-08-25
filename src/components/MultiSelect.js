@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, /*Link*/ } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect /*Link*/ } from 'react-router-dom';
 
 import { connect } from 'react-redux'
 //import ReactDOM from 'react-dom'
@@ -17,6 +17,7 @@ class MultiSelect extends Component {
     return (
       <Router>  
         <Switch> {/* The Switch decides which component to show based on the current URL.*/}
+          <Redirect from="/:url*(/+)" />
           <Route exact path='/Cv' component={Cv}></Route>
           <Route exact path='/Exchange' component={Exchange}></Route>
           <Route exact path='/' component={Select}></Route>
