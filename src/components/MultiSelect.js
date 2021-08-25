@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route,  /*Link*/ } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route,  /*Link*/ } from 'react-router-dom';
 // import { Route, Switch } from 'react-router-dom'
 // import IpfsRouter from 'ipfs-react-router'
 
