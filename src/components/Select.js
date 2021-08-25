@@ -18,7 +18,7 @@ class Select extends Component {
               
             </div>
             <div className="center-button"> 
-              <a href="/CV" class="button-styling">Cv</a>
+              <a href="#/CV" className="button-styling">Cv</a>
             </div>
           </div>
 
@@ -31,7 +31,7 @@ class Select extends Component {
             
             </div>
             <div className="center-button">  
-              <a href="/Exchange" class="button-styling">Exchange</a>
+              <a href="#/Exchange" className="button-styling">Exchange</a>
             </div> 
           </div>      
        
