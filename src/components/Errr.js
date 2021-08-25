@@ -15,7 +15,7 @@ class Errr extends Component {
               1. If Metamask is not installed please install metamask and Login     
             </div>
             <div className="center-button"> 
-              <a href="https://metamask.io/"><input type="button" bg="dark" text="info" value='How to Guide'></input></a>
+              <a href="https://metamask.io/" class="button-styling">How to Guide</a>
             </div>
           </div>
 
@@ -28,7 +28,7 @@ class Errr extends Component {
               2. if Exchange is not loaded please change to Ropsten Test Network      
             </div>
             <div className="center-button">  
-              <a href="https://docs.cargo.build/guides/changing-your-network-with-metamask"><input type="button" bg="dark" text="info" value='How to Guide'></input></a>
+              <a href="https://docs.cargo.build/guides/changing-your-network-with-metamask" class="button-styling">How to Guide</a>
             </div> 
           </div>      
        
