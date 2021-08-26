@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './App.css'
 //import Navbar from './Navbar'
 //import Content from './Content'
-import MultiSelect from './MultiSelect'
 import Select from './Select'
 //import Errr from './Errr'
 import { connect } from 'react-redux'
@@ -20,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {<MultiSelect/> ? <MultiSelect /> : <Select />}       
+        <Select />}       
       </div>
     );
   }
