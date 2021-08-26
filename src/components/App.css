@@ -152,6 +152,14 @@
   height: 100px;
 }
 
+.center-button-nav{
+  position: absolute;
+  top: 20%;
+  width: 80%;
+  text-align: center;
+  font-size: 18px;
+}
+
 .img > div {
   position: absolute;
   left: 0px;
