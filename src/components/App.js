@@ -4,6 +4,7 @@ import './App.css'
 //import Content from './Content'
 import MultiSelect from './MultiSelect'
 import Select from './Select'
+import Exchange from "./Exchange"
 //import Errr from './Errr'
 import { connect } from 'react-redux'
 // import {
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MultiSelect />    
+        <Exchange />    
       </div>
     );
   }
