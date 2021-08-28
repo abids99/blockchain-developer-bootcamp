@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route,  /*Link*/ } from 'react-router-dom';
-import { createHashHistory } from 'history';
+import { HashRouter as Router, Switch, Route,  /*Link*/ } from 'react-router-dom';
 // import { Route, Switch } from 'react-router-dom'
 // import IpfsRouter from 'ipfs-react-router'
 
@@ -17,13 +16,6 @@ import Select from "./Select"
 
 
 class MultiSelect extends Component {
-  history = createHashHistory({
-    basename: "", // The base URL of the app (see below)
-    hashType: "slash", // The hash type to use (see below)
-    // A function to use to confirm navigation with the user (see below)
-    getUserConfirmation: (message, callback) => callback(window.confirm(message)),
-  });
-
   render() {
     return (
       <Router>  
