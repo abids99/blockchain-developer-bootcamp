@@ -6,7 +6,6 @@ class PortfolioContent extends Component {
   render() {
     return (
       <div>
-        <PortfolioNav />,
         <div className="content-cus">  
           <div className="horizontal-split"> 
             <div className="full  bg-light text-dark">
