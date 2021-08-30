@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 //import ReactDOM from 'react-dom'
 //import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
 
-import Cv from "./Cv"
+import Portfolio from "./Portfolio"
 import Exchange from "./Exchange"
 import Select from "./Select"
 
@@ -20,7 +20,7 @@ class MultiSelect extends Component {
     return (
       <Router>  
         <Switch> {/* The Switch decides which component to show based on the current URL.*/}
-          <Route exact path='/Cv' component={Cv}></Route>
+          <Route exact path='/Portfolio' component={Portfolio}></Route>
           <Route exact path='/Exchange' component={Exchange}></Route>
           <Route exact path='/' component={Select}></Route>
         </Switch>
