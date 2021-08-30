@@ -3,8 +3,6 @@ import './App.css'
 //import Navbar from './Navbar'
 //import Content from './Content'
 import MultiSelect from './MultiSelect'
-import Select from './Select'
-import Exchange from "./Exchange"
 //import Errr from './Errr'
 import { connect } from 'react-redux'
 // import {
