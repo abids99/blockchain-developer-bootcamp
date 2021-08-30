@@ -13,18 +13,6 @@ class PortfolioNav extends Component {
         <div className="center-button-nav">
           <a href="#/" className="navbar-brand">Home</a>
         </div>
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a
-              className="nav-link small"
-              href={`https://ropsten.etherscan.io/address/${this.props.account}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.account}
-            </a>
-          </li>
-        </ul>
       </nav>
     )
   }
