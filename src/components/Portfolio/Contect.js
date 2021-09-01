@@ -11,7 +11,7 @@ class Contect extends Component {
           <div className="horizontal-split"> 
             <div className="full  bg-light text-dark">
               <div className="center-cus-text">
-                Contect in Portfolio is not yet Deployed
+                You want to Contect me :) I will Update this.
               </div>
             </div>      
           </div>   

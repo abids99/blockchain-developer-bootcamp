@@ -11,7 +11,7 @@ class About extends Component {
           <div className="horizontal-split"> 
             <div className="full  bg-light text-dark">
               <div className="center-cus-text">
-                About in Portfolio is not yet Deployed
+                Sorry About is not written yet.
               </div>
             </div>      
           </div>   

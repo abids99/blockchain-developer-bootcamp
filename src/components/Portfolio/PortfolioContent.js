@@ -11,7 +11,7 @@ class PortfolioContent extends Component {
           <div className="horizontal-split"> 
             <div className="full  bg-light text-dark">
               <div className="center-cus-text">
-                Portfolio is not yet Deployed
+                Portfolio is not yet Deployed.
               </div>
             </div>      
           </div>   
