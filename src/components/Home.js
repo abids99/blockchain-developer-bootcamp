@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 // import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
 // import Exchange from "./Exchange"
 
-class Select extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="content-cus">  
@@ -22,7 +22,7 @@ class Select extends Component {
           </div>
 
           <div className="center-cus-text text-height text-dark">
-            select one
+            Select one
           </div>
 
           <div className="full bg-light text-dark">
@@ -48,4 +48,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Select)
+export default connect(mapStateToProps)(Home)

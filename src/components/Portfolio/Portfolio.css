@@ -23,7 +23,7 @@
 }
 
 .p-nav-s {
-	flex: 0.97;
+	flex: 0.5;
 }
 
 .p-nav-b ul {
@@ -53,9 +53,4 @@
 
 .p-nav-b .current {
 	color: #ff0000;
-}
-
-.active a{
-   background-color: red;
-   color: #fff;
 }

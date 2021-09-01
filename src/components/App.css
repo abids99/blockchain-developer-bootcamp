@@ -326,3 +326,60 @@ td.cancel-order {
 tr.order-book-order {
   cursor: pointer;
 }
+
+.p-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+    bottom: 0;
+  width: 100%;
+  background: #23036e;  
+  height: 56px;
+}
+
+.p-nav-p {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.p-nav-l a {
+  color: #00fcd2;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.p-nav-s {
+  flex: 0.5;
+}
+
+.p-nav-b ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.p-nav-b li {
+  padding: 0 0.5rem;
+}
+
+.p-nav-b a {
+  color: #2aeb9e;
+  text-decoration: none;
+
+}
+
+.p-nav-b a:hover {
+  color: #eb2a2a;
+}
+
+.p-nav-b a:active {
+  color: #eb2a2a;
+}
+
+.p-nav-b .current {
+  color: #ff0000;
+}

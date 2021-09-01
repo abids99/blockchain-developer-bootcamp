@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
 import "./Portfolio.css"
 
+
 class PortfolioNav extends Component {
   render() {
     return (
@@ -12,12 +13,14 @@ class PortfolioNav extends Component {
           <div className="p-nav-s" />
           <div className="p-nav-b">
             <ul>
-              <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-              <li><NavLink exact activeClassName="active" to="/Portfolio">Portfolio</NavLink></li>
-              <li><NavLink exact activeClassName="active" to="/Portfolio/About">About</NavLink></li>
-              <li><NavLink exact activeClassName="active" to="/Portfolio/Contect">Contect</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/">Home</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/Portfolio">Portfolio</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/Portfolio/About">About</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/Portfolio/Contect">Contect</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/Projects">Projects</NavLink></li>
             </ul>
           </div>
+          
         </nav>
       </header>
     )
@@ -26,7 +29,7 @@ class PortfolioNav extends Component {
 
 function mapStateToProps(state) {
   return {
-    
+     
   }
 }
 
