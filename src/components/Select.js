@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import ReactDOM from 'react-dom'
 // import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
-// import Cv from "./Cv"
 // import Exchange from "./Exchange"
 
 class Select extends Component {
