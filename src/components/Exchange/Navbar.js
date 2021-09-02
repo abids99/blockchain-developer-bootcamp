@@ -17,7 +17,7 @@ class Navbar extends Component {
           <div className="p-nav-b">
             <ul>
               <li><NavLink exact activeClassName="current" to="/">Exchange</NavLink></li>
-              <li><NavLink exact activeClassName="current" to="/Portfolio">Portfolio</NavLink></li>
+              <li><a href="https://smar-portfolio.on.fleek.co/#/">Portfolio</a></li>
             </ul>
           </div>
           <ul className="navbar-nav ml-auto">
