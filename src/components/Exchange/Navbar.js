@@ -16,11 +16,8 @@ class Navbar extends Component {
           <div className="p-nav-s" />
           <div className="p-nav-b">
             <ul>
-              <li><NavLink exact activeClassName="current" to="/">Home</NavLink></li>
+              <li><NavLink exact activeClassName="current" to="/">Exchange</NavLink></li>
               <li><NavLink exact activeClassName="current" to="/Portfolio">Portfolio</NavLink></li>
-              <li><NavLink exact activeClassName="current" to="/Portfolio/About">About</NavLink></li>
-              <li><NavLink exact activeClassName="current" to="/Portfolio/Contect">Contect</NavLink></li>
-              <li><NavLink exact activeClassName="current" to="/Projects">Projects</NavLink></li>
             </ul>
           </div>
           <ul className="navbar-nav ml-auto">
