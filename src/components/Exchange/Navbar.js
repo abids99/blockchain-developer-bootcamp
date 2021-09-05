@@ -8,7 +8,7 @@ class Navbar extends Component {
     return (
       <header className="p-nav"> 
         <nav className="p-nav-p">
-          <a className="navbar-brand" href="#/Exchange">SMAR Token Exchange</a>
+          <a className="navbar-brand" href="/Exchange">SMAR Token Exchange</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -17,7 +17,7 @@ class Navbar extends Component {
           <div className="p-nav-b">
             <ul>
               <li><NavLink exact activeClassName="current" to="/">Exchange</NavLink></li>
-              <li><a href="https://smar-portfolio.on.fleek.co/#/">Portfolio</a></li>
+              <li><a href="https://smar-portfolio.on.fleek.co/">Portfolio</a></li>
             </ul>
           </div>
           <ul className="navbar-nav ml-auto">
