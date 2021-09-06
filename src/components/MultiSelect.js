@@ -9,13 +9,16 @@ import { connect } from 'react-redux'
 //import { OverlayTrigger, Tooltip, } from 'react-bootstrap'
 
 import Exchange from "./Exchange/Exchange"
+import Errr from "./Exchange/Errr"
+
 
 class MultiSelect extends Component {
   render() {
     return (
       <Router>  
         <Switch> {/* The Switch decides which component to show based on the current URL.*/}
-          <Route exact path='/' component={Exchange}></Route>          
+          <Route exact path='/' component={Exchange}></Route>
+          <Route exact path='/Errr' component={Errr}></Route>          
         </Switch>
       </Router>  
     );

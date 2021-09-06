@@ -383,3 +383,7 @@ tr.order-book-order {
 .p-nav-b .current {
   color: #ff0000;
 }
+
+.spacer {
+  flex: 0.01;
+}

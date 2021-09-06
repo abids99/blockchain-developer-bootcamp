@@ -29,7 +29,7 @@ export const loadWeb3 = async (dispatch) => {
   let web3
   if(typeof window.ethereum !== 'undefined') {
     web3 = new Web3(window.ethereum)
-    await window.ethereum.request({ method: 'eth_requestAccounts' })
+    //await window.ethereum.request({ method: 'eth_requestAccounts' })
     dispatch(web3Loaded(web3))
     return web3
   }
@@ -39,7 +39,7 @@ export const loadWeb3 = async (dispatch) => {
     return web3
   }
   else {
-    window.alert('Please install MetaMask')
+    //window.alert('Please install MetaMask')
     window.location.assign("https://metamask.io/")
   }
   
@@ -52,7 +52,8 @@ export const loadAccount = async (web3, dispatch) => {
     dispatch(web3AccountLoaded(account))
     return account
   } else {
-    window.alert('Please login with MetaMask')
+    //window.alert('Please login with MetaMask')
+    
     return null
   }
 }
@@ -102,7 +103,7 @@ export const loadAllOrders = async (exchange, dispatch) => {
   dispatch(allOrdersLoaded(allOrders))
 }
 
-export const subscribeToEvents = async (exchange, dispatch) => {
+export const subscribeToEvents = (exchange, dispatch) => {
   exchange.events.Cancel({}, (error, event) => {
     dispatch(orderCancelled(event.returnValues))
   })
@@ -167,7 +168,7 @@ export const loadBalances = async (dispatch, web3, exchange, token, account) => 
     // Trigger all balances loaded
     dispatch(balancesLoaded())
   } else {
-    window.alert('Please login with MetaMask')
+    //window.alert('Please login with MetaMask')
   }
 }
 
