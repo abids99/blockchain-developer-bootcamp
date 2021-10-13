@@ -1,8 +1,9 @@
 require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
-const HDWalletProvider = require('truffle-hdwallet-provider-privkey')
+const HDWalletProvider = require("@truffle/hdwallet-provider")
 const privateKeys = process.env.PRIVATE_KEYS || ""
+const privateKeysMatic = process.env.PRIVATE_KEYS_MATIC || ""
 
 module.exports = {
   
@@ -28,6 +29,13 @@ module.exports = {
       gasPrice: 25000000000,
       network_id: 3
     },
+    matic: {
+      provider: () => new HDWalletProvider([privateKeysMatic], `https://rpc-mumbai.maticvigil.com/v1/${process.env.MATIC_NODE}`),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlock: 200,
+      skipDryRun: true,
+    }
   },
   contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',

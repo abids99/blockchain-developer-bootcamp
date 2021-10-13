@@ -79,7 +79,7 @@ contract Exchange {
 		msg.sender.transfer(_amount);
 		emit Withdraw(ETHER, msg.sender, _amount, tokens[ETHER][msg.sender]);
 	}
-			
+	
 
 	function depositToken (address _token, uint256 _amount) public {
 		require (_token != ETHER);		
