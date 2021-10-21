@@ -1,4 +1,3 @@
-import WalletConnectProvider from '@walletconnect/web3-provider'
 import React, { Component } from 'react'
 import { getChain } from 'evm-chains'
 import Web3Modal from 'web3modal'
@@ -24,7 +23,7 @@ class Exchange extends Component {
     window.ethereum.on('accountsChanged', function (accounts) {
       window.location.reload();
     })
-    window.ethereum.on('networkChanged', function (networkId) {
+    window.ethereum.on('chainChanged', function (chainId) {
       window.location.reload();
     })
     window.ethereum.on('transactionHash', function (networkId) {
@@ -65,7 +64,7 @@ class Exchange extends Component {
 
     //Settings for only MetaMask
     if(typeof window.ethereum!=='undefined'){
-      let network, balance, web3
+      let /*network, balance,*/ web3
 
       window.ethereum.autoRefreshOnNetworkChange = false;
       web3 = new Web3(window.ethereum)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { exchangeSelector } from '../../store/selectors'
+import { web3Selector, exchangeSelector } from '../../store/selectors'
 import { loadAllOrders, subscribeToEvents } from '../../store/interactions'
 import OrderBook from './OrderBook'
 import Trades from './Trades'
@@ -15,8 +15,8 @@ class Content extends Component {
   }
 
   async loadBlockchainData(props) {
-    const { dispatch, exchange } = props
-    await loadAllOrders(exchange, dispatch)
+    const { dispatch, exchange, web3 } = props
+    await loadAllOrders(web3, exchange, dispatch)
     await subscribeToEvents(exchange, dispatch)
   }
 
@@ -40,7 +40,8 @@ class Content extends Component {
 
 function mapStateToProps(state) {
   return {
-    exchange: exchangeSelector(state)
+    exchange: exchangeSelector(state),
+    web3: web3Selector(state)
   }
 }
 
