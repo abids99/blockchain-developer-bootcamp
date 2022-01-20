@@ -158,10 +158,8 @@ class Exchange extends Component {
 }
 
 function mapStateToProps(state) {
-  const contractsLoaded = contractsLoadedSelector(state)
-
   return {
-    contractsLoaded
+    contractsLoaded: contractsLoadedSelector(state)
  }
 }
 

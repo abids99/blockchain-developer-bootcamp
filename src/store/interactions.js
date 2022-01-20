@@ -112,7 +112,7 @@ export const loadAllOrders = async (web3, exchange, dispatch,) => {
   dispatch(allOrdersLoaded(allOrders))
 }
 
-export const subscribeToEvents = (exchange, dispatch) => {
+export const subscribeToEvents = async (exchange, dispatch) => {
   exchange.events.Cancel({}, (error, event) => {
     dispatch(orderCancelled(event.returnValues))
   })
@@ -120,7 +120,6 @@ export const subscribeToEvents = (exchange, dispatch) => {
   exchange.events.Trade({}, (error, event) => {
     dispatch(orderFilled(event.returnValues))
   })
-
   exchange.events.Deposit({}, (error, event) => {
     dispatch(balancesLoaded())
   })  
