@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 // } from '../store/interactions'
 
 class App extends Component {
-  componentDidMount() {
+  componentWillMount() {
   }
 
   render() {

@@ -17,7 +17,7 @@ import { contractsLoadedSelector } from '../../store/selectors'
 
 
 class Exchange extends Component {
-  async componentDidMount() {
+  async componentWillMount() {
     this.loadBlockchainData(this.props.dispatch)
     await this.init()
     window.ethereum.on('accountsChanged', function (accounts) {
